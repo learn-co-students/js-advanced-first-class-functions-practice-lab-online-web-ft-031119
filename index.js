@@ -5,5 +5,18 @@ function logDriversByHometown(drivers,hometown){
   logDriverNames(drivers.filter(function(driver){return driver.hometown === hometown}))
 }
 function driversByRevenue(drivers){
-  drivers.sort(function(driver){return driver.revenue})
+  let newDrivers = [...drivers]
+  return newDrivers.sort(function(a,b){return a.revenue - b.revenue})
+}
+function driversByName(drivers){
+  let newDrivers = [...drivers]
+  return newDrivers.sort(function(a,b){return a.name.localeCompare(b.name)})
+}
+function totalRevenue(drivers){
+  let revenue = 0
+  drivers.forEach(function(driver){revenue += driver.revenue})
+  return revenue
+}
+function averageRevenue(drivers){
+  return totalRevenue(drivers)/drivers.length
 }
