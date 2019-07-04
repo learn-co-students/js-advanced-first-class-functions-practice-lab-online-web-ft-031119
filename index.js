@@ -28,9 +28,14 @@ const driversByRevenue = drivers =>
     driver1.revenue - driver2.revenue);
 
 
-const driversByName = drivers =>
-  drivers.slice().sort((driver1, driver2) =>
-    driver1.name.localeCompare(driver2.name));
+const driversByName = function (drivers) {
+  return drivers.slice().sort(function (driver1, driver2) {
+    return driver1 - driver2
+  })
+}
+// const driversByName = drivers =>
+//   drivers.slice().sort((driver1, driver2) =>
+//     driver1.name.localeCompare(driver2.name));
 
 const totalRevenue = drivers =>
   drivers.reduce((total, currentDriver) => {
